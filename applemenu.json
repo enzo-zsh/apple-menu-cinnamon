@@ -1,0 +1,293 @@
+{
+    "layout": {
+        "type": "layout",
+        "pages": [
+            "page-applications",
+            "page-settings"
+        ],
+        "page-applications": {
+            "type": "page",
+            "title": "Applications",
+            "sections": [
+                "section-applications"
+            ]
+        },
+        "page-settings": {
+            "type": "page",
+            "title": "Settings",
+            "sections": [
+                "section-settings-global",
+                "section-settings-applications"
+            ]
+        },
+        "section-applications": {
+            "type": "section",
+            "title": "Applications",
+            "keys": [
+                "custom-app-list"
+            ]
+        },
+        "section-settings-global": {
+            "type": "section",
+            "title": "Global Settings",
+            "keys": [
+                "visible-launcher-label",
+                "launcher-label",
+                "custom-launcher-icon",
+                "launcher-icon",
+                "notification-enabled",
+                "notification-text",
+                "hotkeys-enabled",
+                "hotkey-bindings",
+                "menu-at-pointer"
+            ]
+        },
+        "section-settings-applications": {
+            "type": "section",
+            "title": "Application Settings",
+            "keys": [
+                "fixed-menu-width",
+                "visible-app-icons",
+                "use-symbolic-icons",
+                "app-icon-size"
+            ]
+        }
+    },
+    "custom-app-list": {
+        "type": "custom",
+        "file": "widgets.py",
+        "widget": "CustomAppList"
+    },
+    "list-applications": {
+        "type": "list",
+        "columns": [
+            {
+                "id": "name",
+                "title": "Name",
+                "type": "string"
+            },
+            {
+                "id": "group",
+                "title": "Group",
+                "type": "string"
+            },
+            {
+                "id": "icon",
+                "title": "Icon",
+                "type": "icon",
+                "default": "application-x-executable"
+            },
+            {
+                "id": "command",
+                "title": "Command",
+                "type": "string"
+            }
+        ],
+        "default": [],
+        "show-buttons": false,
+        "value": [
+            {
+                "name": "About This PC",
+                "group": "",
+                "icon": "rabbitvcs-about",
+                "command": "cinnamon-settings info"
+            },
+            {
+                "name": "$eparator$",
+                "group": "",
+                "icon": "",
+                "command": [
+                    222,
+                    221,
+                    218
+                ],
+                "color": [
+                    222,
+                    221,
+                    218
+                ]
+            },
+            {
+                "name": "System Settings...",
+                "group": "",
+                "icon": "settings-configure",
+                "command": "env WEBKIT_DISABLE_COMPOSITING_MODE=1 cinnamon-settings"
+            },
+            {
+                "name": "App Store...",
+                "group": "",
+                "icon": "Appstore",
+                "command": "mintinstall"
+            },
+            {
+                "name": "$eparator$",
+                "group": "",
+                "icon": "",
+                "command": [
+                    222,
+                    221,
+                    218
+                ],
+                "color": [
+                    222,
+                    221,
+                    218
+                ]
+            },
+            {
+                "name": "Shut Down...",
+                "group": "",
+                "icon": "system-shutdown",
+                "command": "cinnamon-session-quit --power-off"
+            },
+            {
+                "name": "Reboot",
+                "group": "",
+                "icon": "system-reboot",
+                "command": "cinnamon-session-quit --reboot"
+            },
+            {
+                "name": "$eparator$",
+                "group": "",
+                "icon": "",
+                "command": [
+                    222,
+                    221,
+                    218
+                ],
+                "color": [
+                    222,
+                    221,
+                    218
+                ]
+            },
+            {
+                "name": "Log Out...",
+                "group": "",
+                "icon": "system-log-out",
+                "command": "cinnamon-session-quit --logout"
+            },
+            {
+                "name": "Lock Screen...",
+                "group": "",
+                "icon": "lock-symbolic",
+                "command": "cinnamon-screensaver-command --lock"
+            }
+        ]
+    },
+    "list-groups": {
+        "type": "list",
+        "columns": [
+            {
+                "id": "name",
+                "title": "Name",
+                "type": "string"
+            },
+            {
+                "id": "icon",
+                "title": "Icon",
+                "type": "icon",
+                "default": "folder"
+            }
+        ],
+        "default": [],
+        "show-buttons": false,
+        "value": []
+    },
+    "visible-launcher-label": {
+        "type": "switch",
+        "description": "Show Label",
+        "default": true,
+        "value": true
+    },
+    "launcher-label": {
+        "type": "entry",
+        "description": "Label",
+        "default": "Launcher",
+        "value": "      Finder"
+    },
+    "custom-launcher-icon": {
+        "type": "switch",
+        "description": "Custom Icon",
+        "default": false,
+        "value": true
+    },
+    "launcher-icon": {
+        "type": "iconfilechooser",
+        "description": "Icon",
+        "default": "folder",
+        "dependency": "custom-launcher-icon",
+        "value": "/home/enzo/T\u00e9l\u00e9chargements/2.png"
+    },
+    "notification-enabled": {
+        "type": "switch",
+        "description": "Show Notifications",
+        "default": true,
+        "tooltip": "Show notification on application launch",
+        "value": false
+    },
+    "notification-text": {
+        "type": "entry",
+        "description": "Notification Text",
+        "default": "Launch '%s'.",
+        "dependency": "notification-enabled",
+        "tooltip": "%s will be your application name",
+        "value": "Launch '%s'."
+    },
+    "hotkeys-enabled": {
+        "type": "switch",
+        "description": "Enable Hotkeys",
+        "default": false,
+        "value": false
+    },
+    "hotkey-bindings": {
+        "type": "keybinding",
+        "description": "Show menu",
+        "default": "",
+        "dependency": "hotkeys-enabled",
+        "tooltip": "Set keybinding(s) to show the menu",
+        "value": ""
+    },
+    "menu-at-pointer": {
+        "type": "switch",
+        "description": "Menu at mouse position",
+        "default": false,
+        "dependency": "hotkeys-enabled",
+        "tooltip": "Show the menu next to the cursor when triggered by hotkey",
+        "value": false
+    },
+    "fixed-menu-width": {
+        "type": "switch",
+        "description": "Fixed Menu Width",
+        "default": false,
+        "tooltip": "Based on the largest submenu item, to prevent menu width flickering",
+        "value": false
+    },
+    "visible-app-icons": {
+        "type": "switch",
+        "description": "Show Application Icons",
+        "default": true,
+        "tooltip": "Show Application Icons in Popup-Menu",
+        "value": true
+    },
+    "use-symbolic-icons": {
+        "type": "switch",
+        "description": "Use Symbolic Application Icons",
+        "default": false,
+        "tooltip": "Use Symbolic Application Icons, where it's possible",
+        "dependency": "visible-app-icons",
+        "value": true
+    },
+    "app-icon-size": {
+        "type": "spinbutton",
+        "description": "Application Icon Size",
+        "default": 24,
+        "min": 12,
+        "max": 94,
+        "step": 1,
+        "dependency": "visible-app-icons",
+        "tooltip": "Set Icon size",
+        "value": 16.0
+    },
+    "__md5__": "2e27a47c1fa7a27a43e6114afeeb12cd"
+}
